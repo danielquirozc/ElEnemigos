@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="styles2.css">
+</head>
+<style>
+  body {
+    margin-top: none;
+  }
+</style>
+<header>
+  <button type="button" style="width:55px;height:40px" onclick="location.href='index.html'">
+  Volver</button>
+</header>
+<body>
+
+  <main>
+    <div class="login-container">
+      <h2>Login</h2>
+      <form action="#" method="POST">
+        <div class="input-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" placeholder="Enter your username" required>
+        </div>
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        </div>
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </main>
+  <script>
+    const form = document.querySelector('form');
+    const usernameInput = document.querySelector('#username');
+    const passwordInput = document.querySelector('#password');
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const username = usernameInput.value;
+      const password = passwordInput.value;
+
+      fetch('users.json')
+        .then(response => response.json())
+        .then(data => {
+          const correctPassword = data.find(user => user.username === username && user.password === password);
+          if(correctPassword) {
+            window.location.href = 'dashboard.html';
+          } else {
+            alert('Invalid login credentials');
+          }
+        });
+    });
+  </script>
+</body>
+</html>

@@ -32,6 +32,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 20px 100px;
+  font:"Press Start 2P";
 }
 
 .rainbow {
@@ -42,6 +43,7 @@ header {
   background-clip: text;
   color: transparent;
   animation: rainbow 10s ease-in-out infinite;
+  font:"Press Start 2P";
 }
 
 @keyframes rainbow {
@@ -121,10 +123,10 @@ main {
 .game-card {
   width: 300px;
   background-color: var(--game-card-bg);
-  border: 1px solid var(--game-card-border);
+  border: none;
   border-radius: 5px;
   box-shadow: 0 0 30px rgba(0, 0, 0, .4);
-  margin: 5px;
+  margin: 2px;
   padding: 20px;
   cursor: pointer;
   transition: background-color .3s ease;

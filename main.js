@@ -2,7 +2,7 @@ const container = document.getElementById('container-games');
 const searchInput = document.getElementById('search'); 
 const botones = document.getElementsByClassName('platform-button');
 
-const GAMES_LIMIT = 12;
+const GAMES_LIMIT = 20;
 let games = [];
 let filteredGames = []; 
 

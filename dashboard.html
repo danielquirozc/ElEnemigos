@@ -1,0 +1,225 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        :root {
+          --main-color: #555;
+          --bg-color: #222;
+          --link-color: #fff;
+          --link-color-hover: #ddd;
+    
+          --panel-bg: #333;
+          --panel-text: #fff;
+          --panel-border: #555;
+          --panel-hover: #444;
+        }
+    
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+    
+        html, body {
+          font-family: 'Lato', sans-serif;
+          color: #fff;
+          background-color: var(--bg-color);
+          display: flex;
+          flex-direction: column;
+          align-items: stretch;
+          justify-content: flex-start;
+          min-height: 100vh;
+        }
+    
+        header {
+          background-color: var(--panel-bg);
+          border: 1px solid var(--panel-border);
+          border-radius: 10px 10px 0 0;
+          box-shadow: 0 0 30px rgba(0, 0, 0, .4);
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 10px;
+          width: 100%;
+        }
+    
+        header h1 {
+          color: var(--panel-text);
+          margin: 0;
+        }
+    
+        header img {
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+    
+        header a {
+          text-decoration: none;
+        }
+    
+        main {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          margin-top: 70px;
+          max-width: 1200px;
+          width: 100%;
+        }
+    
+        .admin-panel {
+          background-color: var(--panel-bg);
+          border: 1px solid var(--panel-border);
+          border-radius: 10px;
+          box-shadow: 0 0 30px rgba(0, 0, 0, .4);
+          margin: 20px;
+          padding: 20px;
+          width: 100%;
+          max-width: 600px;
+        }
+    
+        
+    
+        .admin-panel input, .admin-panel textarea {
+          width: 100%;
+          padding: 10px;
+          margin-bottom: 10px;
+        }
+    
+        .admin-panel h2 {
+          color: var(--panel-text);
+          margin-top: 0;
+          margin-bottom: 5px;
+        }
+    
+        .admin-panel p {
+          color: var(--panel-text);
+          margin: 5px 0;
+        }
+    
+        a {
+          color: var(--link-color);
+          text-decoration: none;
+        }
+    
+        a:hover {
+          color: var(--link-color-hover);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="rainbow">Admin Dashboard</h1>
+        <a href="/login">
+            <p>@admin</p>
+        </a>
+    </header>
+    <main>
+        <form action="/admin/games" method="POST">
+            <div class="admin-panel square-panel">
+                <h2>Add Game Card</h2>
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title" required>
+                <label for="cover_url">Image URL</label>
+                <input type="url" id="cover_url" name="cover_url" required>
+                <label for="game_size">Game Size</label>
+                <input type="text" id="game_size" name="game_size" required>
+                <label for="discord_message_id">Discord Message ID</label>
+                <input type="text" id="discord_message_id" name="discord_message_id" required>
+                <label for="link_type">Link Type</label>
+                <select id="link_type" name="link_type" required>
+                    <option value="discord">Mediafire</option>
+                    <option value="itchio">Torrent Portable</option>
+                    <option value="steam">Gofile</option>
+                </select>
+                <button type="submit" class="submit-button">Submit</button>
+            </div>
+        </form>
+        <script>
+            const form = document.querySelector('form');
+            const inputTitle = document.querySelector('#title');
+            const inputCoverUrl = document.querySelector('#cover_url');
+            const inputGameSize = document.querySelector('#game_size');
+            const inputDiscordMessageId = document.querySelector('#discord_message_id');
+            const selectLinkType = document.querySelector('#link_type');
+            form.addEventListener('submit', (event) => {
+                event.preventDefault();
+                const title = inputTitle.value;
+                const coverUrl = inputCoverUrl.value;
+                const gameSize = inputGameSize.value;
+                const discordMessageId = inputDiscordMessageId.value;
+                const linkType = selectLinkType.value;
+                fetch('games.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        data.push({
+                            "title": title,
+                            "cover_url": coverUrl,
+                            "game_size": gameSize,
+                            "discord_message_id": discordMessageId,
+                            "link_type": linkType
+                        });
+                        const json = JSON.stringify(data);
+                        const options = {
+                            method: 'PUT',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: json
+                        };
+                        fetch('games.json', options);
+                        window.location.reload();
+                    });
+            });
+        </script>
+        
+<style>
+    .submit-button {
+        background-color: #222;
+        border: none;
+        color: #ffffff;
+        padding: 15px 80px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 8px;
+        width: 100%;
+    }
+    
+    .submit-button:hover {
+        background-color: #141414;
+    }
+    
+</style>
+            </div>
+        </form>
+        <style>
+            .square-panel {
+                width: 300px;
+                height: 400px;
+            }
+
+            .square-panel:hover {
+                background-color: var(--panel-hover);
+            }
+
+            .square-panel p {
+                color: var(--panel-text);
+                margin: 5px 0;
+            }
+        </style>
+    </main>
+    
+
+
+
+

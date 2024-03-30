@@ -1,0 +1,120 @@
+:root {
+    --main-color: #555;
+    --bg-color: #222;
+    --link-color: #fff;
+    --link-color-hover: #ddd;
+  
+    --game-card-bg: #333;
+    --game-card-border: #666;
+    --game-card-title-color: #fff;
+    --game-card-info-color: #aaa;
+    --game-card-hover-bg: #444;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Lato', sans-serif;
+    color: var(--main-color);
+    background-color: var(--bg-color);
+    min-height: 100vh;
+  }
+  
+  header {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    padding: 20px;
+  }
+  
+  .rainbow {
+    font-size: 3rem;
+    background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: rainbow 10s ease-in-out infinite;
+  }
+  
+  @keyframes rainbow {
+    0% {
+      background-position: 0% 0%;
+    }
+  
+    100% {
+      background-position: -1200% 0%;
+    }
+  }
+  
+  main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .login-container {
+    justify-content: top center;
+    align-items: top center;
+    width: 300px;
+    background-color: var(--game-card-bg);
+    border: 1px solid var(--game-card-border);
+    border-radius: 5px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, .4);
+    padding: 20px;
+    margin-top: 5px;
+  }
+  
+  .login-container h2 {
+    justify-content: top center;
+    align-items: top center;
+    color: var(--game-card-title-color);
+    margin-bottom: 20px;
+    margin-top: 10px;
+  }
+  
+  .input-group {
+    justify-content: top center;
+    align-items: top center;
+    margin-bottom: 15px;
+  }
+  
+  .input-group label {
+    justify-content: top center;
+    align-items: top center;
+    display: block;
+    margin-bottom: 5px;
+    color: var(--game-card-info-color);
+  }
+  
+  .input-group input {
+    justify-content: top center;
+    align-items: top center;
+    width: 100%;
+    padding: 10px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: var(--main-color);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: var(--game-card-hover-bg);
+  }
+  
+  
