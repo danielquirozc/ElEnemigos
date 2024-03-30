@@ -115,6 +115,7 @@ main {
   justify-content: center;
   margin: 0 auto;
   padding: 20px;
+  gap: 5px;
 }
 
 .game-card {
@@ -123,7 +124,6 @@ main {
   border: 1px solid var(--game-card-border);
   border-radius: 10px;
   box-shadow: 0 0 30px rgba(0, 0, 0, .4);
-  margin: 20px;
   padding: 20px;
   cursor: pointer;
   transition: background-color .3s ease;
