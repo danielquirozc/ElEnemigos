@@ -1,10 +1,10 @@
 :root {
   --main-color: #555;
-  --bg-color: #222;
+  --bg-color: #1c1c1c;
   --link-color: #fff;
   --link-color-hover: #ddd;
 
-  --game-card-bg: #2d2d2d;
+  --game-card-bg: #1f1f1f;
   --game-card-border: #666;
   --game-card-title-color: #fff;
   --game-card-info-color: #aaa;
@@ -101,8 +101,8 @@ header {
 .search-bar input {
   padding: 10px;
   border-radius: 5px;
-  background-color: #333;
-  border: none;
+  background-color: #212121;
+  border: 1px solid #333;
   outline: none;
   color: inherit;
   width: 100%;
@@ -122,24 +122,37 @@ main {
 }
 
 .game-card {
+  position: relative;
+  border: 1px solid #333;
   width: 300px;
   background-color: var(--game-card-bg);
-  border: none;
   border-radius: 5px;
   box-shadow: 0 0 30px rgba(0, 0, 0, .4);
   margin: 2px;
   padding: 20px;
   cursor: pointer;
-  background-image: radial-gradient(600px circle at var(--x) var(--y), rgba(169, 169, 169, var(--opacity)), transparent 40%);
 }
 
-.game-card:hover {
-  --opacity: 0.2;
+.game-card-spotlight {
+  top: 0;
+  pointer-events: none;
+  left: 0;
+  background-image: radial-gradient(600px circle at var(--x) var(--y), rgba(160, 160, 160, 0.1), transparent 40%);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  opacity: 0;
+  transition: 500ms;
+}
+
+.game-card:hover .game-card-spotlight {
+  opacity: 1;
 }
 
 .game-card img {
   max-width: 100%;
-  border-radius: 5px px 0 0;
+  border-radius: 5px;
 }
 
 .game-card h2 {
