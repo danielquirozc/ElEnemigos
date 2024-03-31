@@ -23,6 +23,8 @@ body {
   color: var(--main-color);
   background-color: var(--bg-color);
   min-height: 100vh;
+  background-size: 50px 50px;
+  background-image: linear-gradient(to right, #fbc2eb2d 0px, transparent 1px), linear-gradient(to bottom, #fbc2eb2d 0px, transparent 1px);
 }
 
 /* Header */
@@ -33,7 +35,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 20px 100px;
-  font:"Press Start 2P";
+  font-family:"Press Start 2P";
 }
 
 .rainbow {
