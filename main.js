@@ -53,8 +53,9 @@ function renderGames(gamesToRender) {
   gameCards.forEach((card) => {
     card.onmousemove = (event) => {
       const spotlight = card.firstElementChild
-      const x = event.clientX - card.offsetLeft + "px";
-      const y = event.clientY - card.offsetTop + "px";
+      const rect = card.getBoundingClientRect();
+      const x = event.clientX - rect.left + "px";
+      const y = event.clientY - rect.top + "px";
       spotlight.style.setProperty('--x', x);
       spotlight.style.setProperty('--y', y);
     };
