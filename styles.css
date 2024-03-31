@@ -123,12 +123,12 @@ main {
 
 .game-card {
   position: relative;
-  border: 1px solid #333;
+  border: none solid #333;
   width: 300px;
   background-color: var(--game-card-bg);
   border-radius: 5px;
   box-shadow: 0 0 30px rgba(0, 0, 0, .4);
-  margin: 2px;
+  margin: 0.5px;
   padding: 20px;
   cursor: pointer;
 }
