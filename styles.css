@@ -4,11 +4,12 @@
   --link-color: #fff;
   --link-color-hover: #ddd;
 
-  --game-card-bg: #333;
+  --game-card-bg: #2d2d2d;
   --game-card-border: #666;
   --game-card-title-color: #fff;
   --game-card-info-color: #aaa;
   --game-card-hover-bg: #444;
+  --opacity: 0;
 }
 
 * {
@@ -129,11 +130,11 @@ main {
   margin: 2px;
   padding: 20px;
   cursor: pointer;
-  transition: background-color .3s ease;
+  background-image: radial-gradient(600px circle at var(--x) var(--y), rgba(169, 169, 169, var(--opacity)), transparent 40%);
 }
 
 .game-card:hover {
-  background-color: var(--game-card-hover-bg);
+  --opacity: 0.2;
 }
 
 .game-card img {

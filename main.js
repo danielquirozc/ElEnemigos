@@ -40,12 +40,24 @@ function renderGames(gamesToRender) {
     const gameCard = document.createElement('div');
     gameCard.classList.add('game-card');
     gameCard.innerHTML = `
+      <div></div>
       <img src="${gamesToRender[i].cover_url}" alt="">
       <h2>${gamesToRender[i].title}</h2>
       <p>${gamesToRender[i].game_size}</p>
     `;
     container.appendChild(gameCard);
   }
+
+  // Agregar eventos de mousemove a los videojuegos y efecto spotlight
+  const gameCards = document.querySelectorAll('.game-card');
+  gameCards.forEach((card) => {
+    card.onmousemove = (event) => {
+      const rect = card.getBoundingClientRect()
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+      card.setAttribute('style', `--x:${x}px; --y:${y}px;`);
+    };
+  });
 }
 
 // Función para filtrar los videojuegos
@@ -57,3 +69,4 @@ function filterGames() {
 }
 
 searchInput.addEventListener('keyup', filterGames);
+
