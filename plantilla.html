@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">    
+  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Enemigos</title>
+  <style>
+    .download-button {
+      background-color: grey;
+      color: rgb(46, 46, 46);
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+
+    .download-button:hover {
+      background-color: rgb(209, 208, 208);
+      color: rgb(46, 46, 46);
+    }
+  </style>
+</head>
+<body style="margin: 0; padding: 0; background-size: cover;">
+
+  <header>
+    <h1 class="text-rainbow">El Enemigos</h1>  
+    <div class="platform-buttons">
+      <button class="platform-button" value="pcGames">PC</button>
+      <button class="platform-button" value="playstationGames">PlayStation</button>
+      <button class="platform-button" value="androidGames">Android</button>
+      <button class="platform-button" value="nintendoGames">Nintendo</button>
+      <button class="platform-button" value="uncrackedGames">Uncracked</button>
+      <button class="platform-button" onclick="location.href='login.html'">Login</button>
+    </div>
+    <form class="search-bar">
+      <input type="text" placeholder="Buscar..." id="search">
+    </form>
+  </header>
+
+  <main>
+    <div class="game-card-down">
+      <div class="game-card-spotlight"></div>
+      <img src="https://via.placeholder.com/300" alt="Game Image">
+      <h2>Nombre del Juego</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget magna rhoncus, consectetur libero ut, congue ligula.</p>
+      <a href="#" class="download-button">Descargar</a>
+    </div>
+  </main>
+
+  <script src="main.js"></script>
+</body>
+</html>

@@ -36,14 +36,18 @@ fetchGames();
 // Función para renderizar los videojuegos
 function renderGames(gamesToRender) {
   container.innerHTML = ''; 
+  if (tipoDeJuego == "uncrackedGames") {
+    
+  }
   for (let i = 0; i < GAMES_LIMIT; i++) {
+    const { title, cover_url, game_size, status} = gamesToRender[i];
     const gameCard = document.createElement('div');
     gameCard.classList.add('game-card');
     gameCard.innerHTML = `
       <div class="game-card-spotlight"></div>
-      <img src="${gamesToRender[i].cover_url}" alt="">
-      <h2>${gamesToRender[i].title}</h2>
-      <p>${gamesToRender[i].game_size}</p>
+      <img src="${cover_url}" alt="${title}">
+      <h2>${title}</h2>
+      <p>${game_size ? game_size : status}</p>
     `;
     container.appendChild(gameCard);
   }

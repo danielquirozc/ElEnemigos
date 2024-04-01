@@ -19,7 +19,6 @@
 }
 
 body {
-  font-family: 'Lato', sans-serif;
   color: var(--main-color);
   background-color: var(--bg-color);
   min-height: 100vh;
@@ -35,18 +34,18 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 20px 100px;
-  font-family:"Press Start 2P";
 }
 
-.rainbow {
+.text-rainbow {
   font-size: 3rem;
-  background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+  background: linear-gradient(to right, rgb(197, 73, 73), rgb(216, 171, 87), rgb(238, 238, 154), rgb(80, 184, 80), rgb(47, 47, 250), rgb(88, 40, 122), rgb(221, 143, 221));
   background-size: 400% 400%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   animation: rainbow 10s ease-in-out infinite;
-  font:"Press Start 2P";
+  text-transform: uppercase;
+  font-family: "Pixelify Sans", sans-serif;
 }
 
 @keyframes rainbow {
@@ -66,6 +65,7 @@ header {
 }
 
 .platform-button {
+  font-family: 'Montserrat', sans-serif;
   background-color: transparent;
   border: 1px solid #333;
   color: #868686;
@@ -101,14 +101,21 @@ header {
 }
 
 .search-bar input {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
   padding: 10px;
   border-radius: 5px;
-  background-color: #212121;
+  background-color: transparent;
   border: 1px solid #333;
   outline: none;
   color: inherit;
   width: 100%;
   font-size: inherit;
+  transition: 500ms;
+}
+
+.search-bar input:focus {
+  background-color: #1d1d1d;
 }
 
 /* Contenedor Juegos */
@@ -168,6 +175,8 @@ main {
   margin: 5px 0;
   margin-bottom: 10px;
 }
+
+.ga
 
 a {
   color: var(--link-color);
