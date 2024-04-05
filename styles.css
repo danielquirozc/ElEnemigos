@@ -140,6 +140,7 @@ main {
   margin: 0.5px;
   padding: 20px;
   cursor: pointer;
+  font-family: 'bahnschrift', sans-serif;
 }
 
 .game-card-spotlight {
